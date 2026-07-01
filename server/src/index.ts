@@ -1,24 +1,6 @@
-import express from 'express';
-import cors from 'cors';
-import { fileURLToPath } from 'node:url';
-import { dirname, resolve } from 'node:path';
-import { existsSync } from 'node:fs';
+import app from './app';
 import { PORT, providerModes } from './env';
-import { api } from './routes/api';
 import { TOTAL_STAY_COUNT } from './data/hotels';
-
-const app = express();
-app.use(cors());
-app.use(express.json({ limit: '1mb' }));
-app.use('/api', api);
-
-// Serve the built frontend in production (web/dist), if present.
-const here = dirname(fileURLToPath(import.meta.url)); // server/src
-const webDist = resolve(here, '../../web/dist');
-if (existsSync(webDist)) {
-  app.use(express.static(webDist));
-  app.get('*', (_req, res) => res.sendFile(resolve(webDist, 'index.html')));
-}
 
 app.listen(PORT, () => {
   const modes = providerModes();
