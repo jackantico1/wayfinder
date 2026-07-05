@@ -2,6 +2,7 @@
   "name": "wayfinder",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "Wayfinder — an agentic trip planner with season-aware destination selection and a guarded booking flow.",
   "engines": {
     "node": ">=20"
