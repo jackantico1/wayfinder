@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "start": "tsx src/index.ts",
+    "build": "echo 'server: no build step (bundled by @vercel/node at deploy time)'",
     "typecheck": "tsc --noEmit",
     "check:budget": "tsx scripts/checkBudget.ts"
   },
